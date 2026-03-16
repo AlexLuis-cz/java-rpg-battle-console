@@ -6,6 +6,8 @@ public class Player {
     public int damage;
 
     public void ShowStatus(){
-        System.out.println("Name:"+name+"\nLife:"+life+"\nDamage:"+damage);
+        System.out.println("Name:"+this.name);
+        System.out.println("Life:"+this.life);
+        System.out.println("Damage:"+this.damage);
     }
 }
