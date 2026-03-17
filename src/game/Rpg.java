@@ -1,6 +1,10 @@
+package game;
+
 import Character.Enemy;
 import Character.Player;
+
 import java.util.*;
+
 public class Rpg {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -10,34 +14,34 @@ public class Rpg {
         Player player3 = new Player();
         Player playerSelect = null;
 
-        player.name = "Athena"; //Player
-        player.life = 1000; //Player
-        player.damage = 200; //Player
+        player.setName("Athena"); //Player
+        player.setLife(1000); //Player
+        player.setDamage(200); //Player
 
-        player2.name = "Gerwald"; //Player
-        player2.life = 1000; //Player
-        player2.damage = 200; //Player
+        player2.setName("Gerwald"); //Player
+        player2.setLife(1000); //Player
+        player2.setDamage(200); //Player
 
-        player3.name = "Atlantes"; //Player
-        player3.life = 1000; //Player
-        player3.damage = 200; //Player
+        player3.setName("Atlantes"); //Player
+        player3.setLife(1000); //Player
+        player3.setDamage(200); //Player
         //Enemies
         Enemy enemy = new Enemy();
         Enemy enemy2 = new Enemy();
         Enemy enemy3 = new Enemy();
         Enemy enemySelect = null;
 
-        enemy.name = "Armstrong";
-        enemy.life = 1000;
-        enemy.damage = 100;
+        enemy.setName("Armstrong");
+        enemy.setLife(1000);
+        enemy.setDamage(100);
 
-        enemy2.name = "Gertrudes";
-        enemy2.life = 1000;
-        enemy2.damage = 100;
+        enemy2.setName("Gertrudes");
+        enemy2.setLife(1000);
+        enemy2.setDamage(100);
 
-        enemy3.name = "Ártemis";
-        enemy3.life = 1000;
-        enemy3.damage = 100;
+        enemy3.setName("Ártemis");
+        enemy3.setLife(1000);
+        enemy3.setDamage(100);
         //select
         System.out.println("-----------------");
         System.out.println("(1: Athena) (2: Gerwald) (3: Atlantes)");
@@ -79,7 +83,7 @@ public class Rpg {
         }
         //Fight
         byte actionOption;
-        while (playerSelect.life > 0 && enemySelect.life > 0) {
+        while (playerSelect.getLife() > 0 && enemySelect.getLife() > 0) {
             boolean playerDefended = false;
             boolean enemyDefended = false;
 
@@ -95,15 +99,15 @@ public class Rpg {
             switch (actionOption) {
                 case 1:
                     if (enemyDefended) {
-                        System.out.println("enemy defended" + "\nenemy's current life:" + enemySelect.life);
+                        System.out.println("enemy defended" + "\nenemy's current life:" + enemySelect.getLife());
                     } else {
-                        enemySelect.life -= playerSelect.damage;
-                        System.out.println("damage caused:" + playerSelect.damage + "\nenemy's current life:" + enemySelect.life);
+                        enemySelect.setLife(enemySelect.getLife() - playerSelect.getDamage());
+                        System.out.println("damage caused:" + playerSelect.getDamage() + "\nenemy's current life:" + enemySelect.getLife());
                     }
                     break;
                 case 2:
                     playerDefended = true;
-                    System.out.println("You defended" + "\ncurrent life:" + playerSelect.life);
+                    System.out.println("You defended" + "\ncurrent life:" + playerSelect.getLife());
                     break;
                 default:
                     System.out.println("Invalid option");
@@ -112,25 +116,25 @@ public class Rpg {
             //action Enemy
             if (actionEnemy == 1) {
                 if (playerDefended) {
-                    System.out.println("enemy tried to cause:" + enemySelect.damage + " damage");
+                    System.out.println("enemy tried to cause:" + enemySelect.getDamage() + " damage");
                 } else {
-                    playerSelect.life -= enemySelect.damage;
-                    System.out.println("damage caused:" + enemySelect.damage + "\nplayer's current life:" + playerSelect.life);
+                    playerSelect.setLife(playerSelect.getLife() - enemySelect.getDamage());
+                    System.out.println("damage caused:" + enemySelect.getDamage() + "\nplayer's current life:" + playerSelect.getLife());
                 }
             }
             //end-of-game verification
-            if (playerSelect.life <= 0 && enemySelect.life <= 0) {
-                playerSelect.life = 0;
-                enemySelect.life = 0;
+            if (playerSelect.getLife() <= 0 && enemySelect.getLife() <= 0) {
+                playerSelect.setLife(0);
+                enemySelect.setLife(0);
                 System.out.println("Draw!");
                 break;
             }
-            if (enemySelect.life <= 0) {
-                enemySelect.life = 0;
+            if (enemySelect.getLife() <= 0) {
+                enemySelect.setLife(0);
                 System.out.println("You Won!");
                 break;
-            } else if (playerSelect.life <= 0) {
-                playerSelect.life = 0;
+            } else if (playerSelect.getLife() <= 0) {
+                playerSelect.setLife(0);
                 System.out.println("Enemy Won");
                 break;
             }
