@@ -1,5 +1,4 @@
 package Character;
-
 public class Player {
     private String name;
     private int life;

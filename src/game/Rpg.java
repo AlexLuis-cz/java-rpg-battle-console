@@ -1,30 +1,40 @@
 package game;
-
 import Character.Enemy;
 import Character.Player;
-
 import java.util.*;
-
 public class Rpg {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        //Players
+        String creatName = "";
+        System.out.println("-----------------");
+        System.out.println("(1: Creat Player) (2: Gerwald) (3: Atlantes)");
+        System.out.print("Choose a player:");
+        byte chosenPlayer = sc.nextByte();
         Player player = new Player();
         Player player2 = new Player();
         Player player3 = new Player();
-        Player playerSelect = null;
 
-        player.setName("Athena"); //Player
+        //player 1
+        if (chosenPlayer == 1) {
+            System.out.print("Write the player's name:");
+            creatName = sc.next();
+        }
+        player.setName(creatName);
         player.setLife(1000); //Player
-        player.setDamage(200); //Player
+        player.setDamage(200);
 
+        //player 2
         player2.setName("Gerwald"); //Player
         player2.setLife(1000); //Player
         player2.setDamage(200); //Player
 
+        //player 3
         player3.setName("Atlantes"); //Player
         player3.setLife(1000); //Player
         player3.setDamage(200); //Player
+
+        //playerSelect
+        Player playerSelect = null;
         //Enemies
         Enemy enemy = new Enemy();
         Enemy enemy2 = new Enemy();
@@ -43,11 +53,6 @@ public class Rpg {
         enemy3.setLife(1000);
         enemy3.setDamage(100);
         //select
-        System.out.println("-----------------");
-        System.out.println("(1: Athena) (2: Gerwald) (3: Atlantes)");
-        System.out.print("Choose a player:");
-
-        byte chosenPlayer = sc.nextByte();
         switch (chosenPlayer) {
             case 1:
                 playerSelect = player;
