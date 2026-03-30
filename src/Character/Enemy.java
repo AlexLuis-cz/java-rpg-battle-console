@@ -10,6 +10,7 @@ public class Enemy {
         System.out.println("Name:" + this.life);
         System.out.println("Name:" + this.damage);
     }
+
     public void init(String name, int life, int damage) {
         this.name = name;
         this.life = life;
@@ -20,18 +21,22 @@ public class Enemy {
     public void setName(String name) {
         this.name = name;
     }
+
     //life
-    public void setLife(int life){
+    public void setLife(int life) {
         this.life = life;
     }
-    public int getLife(){
+
+    public int getLife() {
         return this.life;
     }
+
     //damage
-    public void setDamage(int damage){
+    public void setDamage(int damage) {
         this.damage = damage;
     }
-    public int getDamage(){
+
+    public int getDamage() {
         return this.damage;
     }
 }
