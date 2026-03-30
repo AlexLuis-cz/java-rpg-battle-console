@@ -1,11 +1,13 @@
 package game;
+
 import Character.Enemy;
 import Character.Player;
+
 import java.util.*;
+
 public class Rpg {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String creatName = "";
         System.out.println("-----------------");
         System.out.println("(1: Creat Player) (2: Gerwald) (3: Atlantes)");
         System.out.print("Choose a player:");
@@ -15,23 +17,17 @@ public class Rpg {
         Player player3 = new Player();
 
         //player 1
+        String creatName = "";
         if (chosenPlayer == 1) {
             System.out.print("Write the player's name:");
             creatName = sc.next();
         }
-        player.setName(creatName);
-        player.setLife(1000); //Player
-        player.setDamage(200);
-
+        player.init(creatName, 1000, 200);
         //player 2
-        player2.setName("Gerwald"); //Player
-        player2.setLife(1000); //Player
-        player2.setDamage(200); //Player
+        player2.init("Gerwald", 1000, 200);
 
         //player 3
-        player3.setName("Atlantes"); //Player
-        player3.setLife(1000); //Player
-        player3.setDamage(200); //Player
+        player3.init("Atlantes", 1000, 200);
 
         //playerSelect
         Player playerSelect = null;
@@ -41,17 +37,11 @@ public class Rpg {
         Enemy enemy3 = new Enemy();
         Enemy enemySelect = null;
 
-        enemy.setName("Armstrong");
-        enemy.setLife(1000);
-        enemy.setDamage(100);
+        enemy.init("Armstrong",1000,100);
 
-        enemy2.setName("Gertrudes");
-        enemy2.setLife(1000);
-        enemy2.setDamage(100);
+        enemy2.init("Gertrudes",1000,100);
 
-        enemy3.setName("Ártemis");
-        enemy3.setLife(1000);
-        enemy3.setDamage(100);
+        enemy3.init("Ártemis",1000,100);
         //select
         switch (chosenPlayer) {
             case 1:

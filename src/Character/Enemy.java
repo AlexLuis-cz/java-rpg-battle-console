@@ -10,6 +10,12 @@ public class Enemy {
         System.out.println("Name:" + this.life);
         System.out.println("Name:" + this.damage);
     }
+    public void init(String name, int life, int damage) {
+        this.name = name;
+        this.life = life;
+        this.damage = damage;
+    }
+
     //name
     public void setName(String name) {
         this.name = name;

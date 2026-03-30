@@ -9,6 +9,11 @@ public class Player {
         System.out.println("Life:" + this.life);
         System.out.println("Damage:" + this.damage);
     }
+    public void init(String name, int life, int damage) {
+        this.name = name;
+        this.life = life;
+        this.damage = damage;
+    }
     //name
     public void setName(String name) {
         this.name = name;
