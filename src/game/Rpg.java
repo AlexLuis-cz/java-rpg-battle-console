@@ -18,7 +18,7 @@ public class Rpg {
             System.out.print("Write the player's name:");
             creatName = sc.next();
         }
-        Player   player = new Player(creatName, 1000, 200);
+        Player player = new Player(creatName, 1000, 200);
         Player player2 = new Player("Gerwald", 1000, 200);
         Player player3 = new Player("Atlantes", 1000, 200);
         //playerSelect
