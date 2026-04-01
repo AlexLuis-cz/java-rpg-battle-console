@@ -5,16 +5,16 @@ public class Player {
     private int life;
     private int damage;
 
+    public Player(String name, int life, int damage) {
+        this.name = name;
+        this.life = life;
+        this.damage = damage;
+    }
+
     public void ShowStatus() {
         System.out.println("Name:" + this.name);
         System.out.println("Life:" + this.life);
         System.out.println("Damage:" + this.damage);
-    }
-
-    public void init(String name, int life, int damage) {
-        this.name = name;
-        this.life = life;
-        this.damage = damage;
     }
 
     //name

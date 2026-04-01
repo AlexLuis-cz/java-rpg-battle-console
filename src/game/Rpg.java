@@ -12,36 +12,22 @@ public class Rpg {
         System.out.println("(1: Creat Player) (2: Gerwald) (3: Atlantes)");
         System.out.print("Choose a player:");
         byte chosenPlayer = sc.nextByte();
-        Player player = new Player();
-        Player player2 = new Player();
-        Player player3 = new Player();
-
         //player 1
         String creatName = "";
         if (chosenPlayer == 1) {
             System.out.print("Write the player's name:");
             creatName = sc.next();
         }
-        player.init(creatName, 1000, 200);
-        //player 2
-        player2.init("Gerwald", 1000, 200);
-
-        //player 3
-        player3.init("Atlantes", 1000, 200);
-
+        Player   player = new Player(creatName, 1000, 200);
+        Player player2 = new Player("Gerwald", 1000, 200);
+        Player player3 = new Player("Atlantes", 1000, 200);
         //playerSelect
         Player playerSelect = null;
         //Enemies
-        Enemy enemy = new Enemy();
-        Enemy enemy2 = new Enemy();
-        Enemy enemy3 = new Enemy();
+        Enemy enemy = new Enemy("Armstrong", 1000, 100);
+        Enemy enemy2 = new Enemy("Gertrudes", 1000, 100);
+        Enemy enemy3 = new Enemy("Ártemis", 1000, 100);
         Enemy enemySelect = null;
-
-        enemy.init("Armstrong",1000,100);
-
-        enemy2.init("Gertrudes",1000,100);
-
-        enemy3.init("Ártemis",1000,100);
         //select
         switch (chosenPlayer) {
             case 1:

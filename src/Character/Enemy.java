@@ -5,6 +5,12 @@ public class Enemy {
     private int life;
     private int damage;
 
+    public Enemy(String name, int life, int damage){
+        this.name = name;
+        this.life = life;
+        this.damage = damage;
+    }
+
     public void ShowStatusEnemy() {
         System.out.println("Name:" + this.name);
         System.out.println("Name:" + this.life);
