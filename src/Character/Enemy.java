@@ -10,11 +10,14 @@ public class Enemy {
         this.life = life;
         this.damage = damage;
     }
+    public Enemy(){
+
+    }
 
     public void ShowStatusEnemy() {
         System.out.println("Name:" + this.name);
-        System.out.println("Name:" + this.life);
-        System.out.println("Name:" + this.damage);
+        System.out.println("life:" + this.life);
+        System.out.println("damage:" + this.damage);
     }
 
     public void init(String name, int life, int damage) {
