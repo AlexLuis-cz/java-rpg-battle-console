@@ -120,6 +120,7 @@ public class Rpg {
                 playerSelect.setLife(0);
                 System.out.println("Enemy Won");
             }
+            //new game
             if (playerSelect.getLife() <= 0 || enemySelect.getLife() <= 0) {
                 System.out.println("Play again: Y/N");
                 sc.nextLine();
