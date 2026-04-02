@@ -2,6 +2,7 @@ package game;
 
 import Character.Enemy;
 import Character.Player;
+import GameVerificatiom.EndGame;
 
 import java.util.*;
 
@@ -32,15 +33,15 @@ public class Rpg {
         switch (chosenPlayer) {
             case 1:
                 playerSelect = player;
-                playerSelect.ShowStatus();
+                playerSelect.showStatus();
                 break;
             case 2:
                 playerSelect = player2;
-                playerSelect.ShowStatus();
+                playerSelect.showStatus();
                 break;
             case 3:
                 playerSelect = player3;
-                playerSelect.ShowStatus();
+                playerSelect.showStatus();
                 break;
             default:
                 System.out.println("Invalidated character, please try again");
@@ -51,15 +52,15 @@ public class Rpg {
         switch (random.nextInt(3)) {
             case 0:
                 enemySelect = enemy;
-                enemySelect.ShowStatusEnemy();
+                enemySelect.showStatusEnemy();
                 break;
             case 1:
                 enemySelect = enemy2;
-                enemySelect.ShowStatusEnemy();
+                enemySelect.showStatusEnemy();
                 break;
             case 2:
                 enemySelect = enemy3;
-                enemySelect.ShowStatusEnemy();
+                enemySelect.showStatusEnemy();
                 break;
         }
         //Fight
@@ -86,6 +87,9 @@ public class Rpg {
                     } else {
                         enemySelect.setLife(enemySelect.getLife() - playerSelect.getDamage());
                         System.out.println("damage caused:" + playerSelect.getDamage());
+                        if (enemySelect.getLife() < 0) {
+                            enemySelect.setLife(0);
+                        }
                         System.out.println("enemy's current life:" + enemySelect.getLife());
                     }
                     break;
@@ -105,21 +109,15 @@ public class Rpg {
                 } else {
                     playerSelect.setLife(playerSelect.getLife() - enemySelect.getDamage());
                     System.out.println("damage caused:" + enemySelect.getDamage());
+                    if (playerSelect.getLife() < 0) {
+                        playerSelect.setLife(0);
+                    }
                     System.out.println("player's current life:" + playerSelect.getLife());
                 }
             }
             //end-of-game verification
-            if (playerSelect.getLife() <= 0 && enemySelect.getLife() <= 0) {
-                playerSelect.setLife(0);
-                enemySelect.setLife(0);
-                System.out.println("Draw!");
-            }else if (enemySelect.getLife() <= 0) {
-                enemySelect.setLife(0);
-                System.out.println("You Won!");
-            } else if (playerSelect.getLife() <= 0) {
-                playerSelect.setLife(0);
-                System.out.println("Enemy Won");
-            }
+            EndGame verification = new EndGame();
+            verification.endGame(playerSelect, enemySelect);
             //new game
             if (playerSelect.getLife() <= 0 || enemySelect.getLife() <= 0) {
                 System.out.println("Play again: Y/N");

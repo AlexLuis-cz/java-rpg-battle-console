@@ -14,7 +14,7 @@ public class Player {
 
     }
 
-    public void ShowStatus() {
+    public void showStatus() {
         System.out.println("Name:" + this.name);
         System.out.println("Life:" + this.life);
         System.out.println("Damage:" + this.damage);

@@ -5,16 +5,17 @@ public class Enemy {
     private int life;
     private int damage;
 
-    public Enemy(String name, int life, int damage){
+    public Enemy(String name, int life, int damage) {
         this.name = name;
         this.life = life;
         this.damage = damage;
     }
-    public Enemy(){
+
+    public Enemy() {
 
     }
 
-    public void ShowStatusEnemy() {
+    public void showStatusEnemy() {
         System.out.println("Name:" + this.name);
         System.out.println("life:" + this.life);
         System.out.println("damage:" + this.damage);
