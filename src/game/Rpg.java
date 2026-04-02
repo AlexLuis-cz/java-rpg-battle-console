@@ -22,7 +22,7 @@ public class Rpg {
         Player player2 = new Player("Gerwald", 1000, 200);
         Player player3 = new Player("Atlantes", 1000, 200);
         //playerSelect
-        Player playerSelect = null;
+        Player playerSelect;
         //Enemies
         Enemy enemy = new Enemy("Armstrong", 1000, 100);
         Enemy enemy2 = new Enemy("Gertrudes", 1000, 100);
@@ -124,9 +124,9 @@ public class Rpg {
             if (playerSelect.getLife() <= 0 || enemySelect.getLife() <= 0) {
                 System.out.println("Play again: Y/N");
                 sc.nextLine();
-                String newgame = sc.nextLine().toUpperCase();
+                String newGame = sc.nextLine().toUpperCase();
 
-                switch (newgame) {
+                switch (newGame) {
                     case "Y":
                         playerSelect.setLife(1000);
                         enemySelect.setLife(1000);
