@@ -65,6 +65,7 @@ public class Rpg {
         //Fight
         byte actionOption;
         while (playerSelect.getLife() > 0 && enemySelect.getLife() > 0) {
+
             boolean playerDefended = false;
             boolean enemyDefended = false;
 
@@ -80,15 +81,18 @@ public class Rpg {
             switch (actionOption) {
                 case 1:
                     if (enemyDefended) {
-                        System.out.println("enemy defended" + "\nenemy's current life:" + enemySelect.getLife());
+                        System.out.println("enemy defended");
+                        System.out.println("enemy's current life:" + enemySelect.getLife());
                     } else {
                         enemySelect.setLife(enemySelect.getLife() - playerSelect.getDamage());
-                        System.out.println("damage caused:" + playerSelect.getDamage() + "\nenemy's current life:" + enemySelect.getLife());
+                        System.out.println("damage caused:" + playerSelect.getDamage());
+                        System.out.println("enemy's current life:" + enemySelect.getLife());
                     }
                     break;
                 case 2:
                     playerDefended = true;
-                    System.out.println("You defended" + "\ncurrent life:" + playerSelect.getLife());
+                    System.out.println("You defended");
+                    System.out.println("current life:" + playerSelect.getLife());
                     break;
                 default:
                     System.out.println("Invalid option");
@@ -100,7 +104,8 @@ public class Rpg {
                     System.out.println("enemy tried to cause:" + enemySelect.getDamage() + " damage");
                 } else {
                     playerSelect.setLife(playerSelect.getLife() - enemySelect.getDamage());
-                    System.out.println("damage caused:" + enemySelect.getDamage() + "\nplayer's current life:" + playerSelect.getLife());
+                    System.out.println("damage caused:" + enemySelect.getDamage());
+                    System.out.println("player's current life:" + playerSelect.getLife());
                 }
             }
             //end-of-game verification
@@ -108,16 +113,29 @@ public class Rpg {
                 playerSelect.setLife(0);
                 enemySelect.setLife(0);
                 System.out.println("Draw!");
-                break;
-            }
-            if (enemySelect.getLife() <= 0) {
+            }else if (enemySelect.getLife() <= 0) {
                 enemySelect.setLife(0);
                 System.out.println("You Won!");
-                break;
             } else if (playerSelect.getLife() <= 0) {
                 playerSelect.setLife(0);
                 System.out.println("Enemy Won");
-                break;
+            }
+            if (playerSelect.getLife() <= 0 || enemySelect.getLife() <= 0) {
+                System.out.println("Play again: Y/N");
+                sc.nextLine();
+                String newgame = sc.nextLine().toUpperCase();
+
+                switch (newgame) {
+                    case "Y":
+                        playerSelect.setLife(1000);
+                        enemySelect.setLife(1000);
+                        break;
+                    case "N":
+                        break;
+                    default:
+                        System.out.println("Invalid option");
+                        break;
+                }
             }
         }
     }
