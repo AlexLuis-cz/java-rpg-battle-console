@@ -13,6 +13,7 @@ public class Rpg {
         System.out.println("(1: Creat Player) (2: Gerwald) (3: Atlantes)");
         System.out.print("Choose a player:");
         byte chosenPlayer = sc.nextByte();
+
         //player 1
         String creatName = "";
         if (chosenPlayer == 1) {
@@ -64,7 +65,7 @@ public class Rpg {
                 break;
         }
         //Fight
-        byte actionOption;
+        byte actionOption = 0;
         while (playerSelect.getLife() > 0 && enemySelect.getLife() > 0) {
 
             boolean playerDefended = false;
@@ -73,7 +74,11 @@ public class Rpg {
             System.out.println("---------------");
             System.out.println("Fight:");
             System.out.println("1: Attack 2: Defender");
-            actionOption = sc.nextByte();
+            if (sc.hasNextByte()) {
+                actionOption = sc.nextByte();
+            } else {
+                sc.next();
+            }
             int actionEnemy = random.nextInt(2);
             if (actionEnemy == 0) {
                 enemyDefended = true;
@@ -117,7 +122,7 @@ public class Rpg {
             }
             //end-of-game verification
             EndGame verification = new EndGame();
-            verification.endGame(playerSelect,enemySelect);
+            verification.endGame(playerSelect, enemySelect);
             //new game
             if (playerSelect.getLife() <= 0 || enemySelect.getLife() <= 0) {
                 System.out.println("Play again: Y/N");

@@ -10,7 +10,8 @@ public class Player {
         this.life = life;
         this.damage = damage;
     }
-    public Player(){
+
+    public Player() {
 
     }
 

@@ -29,6 +29,7 @@ public class Enemy {
     public int getLife() {
         return this.life;
     }
+
     public int getDamage() {
         return this.damage;
     }
