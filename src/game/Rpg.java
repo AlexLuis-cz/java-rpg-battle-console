@@ -2,7 +2,7 @@ package game;
 
 import Character.Enemy;
 import Character.Player;
-import GameVerificatiom.EndGame;
+import GameVerification.EndGame;
 
 import java.util.*;
 
@@ -117,7 +117,7 @@ public class Rpg {
             }
             //end-of-game verification
             EndGame verification = new EndGame();
-            verification.endGame(playerSelect, enemySelect);
+            verification.endGame(playerSelect,enemySelect);
             //new game
             if (playerSelect.getLife() <= 0 || enemySelect.getLife() <= 0) {
                 System.out.println("Play again: Y/N");

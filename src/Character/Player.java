@@ -20,16 +20,6 @@ public class Player {
         System.out.println("Damage:" + this.damage);
     }
 
-    //name
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    //damage
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
     public int getDamage() {
         return this.damage;
     }

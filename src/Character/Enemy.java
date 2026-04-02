@@ -21,17 +21,6 @@ public class Enemy {
         System.out.println("damage:" + this.damage);
     }
 
-    public void init(String name, int life, int damage) {
-        this.name = name;
-        this.life = life;
-        this.damage = damage;
-    }
-
-    //name
-    public void setName(String name) {
-        this.name = name;
-    }
-
     //life
     public void setLife(int life) {
         this.life = life;
@@ -40,12 +29,6 @@ public class Enemy {
     public int getLife() {
         return this.life;
     }
-
-    //damage
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
     public int getDamage() {
         return this.damage;
     }
